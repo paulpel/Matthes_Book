@@ -62,3 +62,54 @@ print(odd_numbers)
 print(min(odd_numbers))
 print(max(odd_numbers))
 print(sum(odd_numbers))
+
+#better way to arrange lists
+
+squares = []
+for i in range(1,11):
+    square = i**2
+    squares.append(square)
+print(squares)
+
+squares = []
+for i in range(1,11):
+    squares.append(i**2)
+print(squares)
+
+#list comprehension
+squares = [value**2 for value in range(1,11)]
+print(squares)
+
+milion = [value for value in range(1,1000001)]
+print(sum(milion))
+
+szescian = [value**3 for value in range(1,11)]
+print(szescian)
+
+#slicing
+playerrs = ['paul','mike','jaga','jaco','mati']
+
+for elem in playerrs[-2:]:          #can use slicing in for loops
+    print(elem.title())
+
+#copying lists
+foods = ['pizza','pasta','lody']
+foods_2 = foods
+foods.append("apple")
+print(foods,foods_2)    #same list two different names
+
+foods = ['pizza','pasta','lody']
+foods_2 = foods[:]      #here is the copy
+foods.append("apple")
+print(foods,foods_2)    #now it works
+
+dimensions = (100,200,300,400)
+dimensions2 = dimensions[-2:]
+print(dimensions2)
+try:
+    dimensions[1] = 0
+except:
+    print("tuples are immutable")
+
+
+
