@@ -111,5 +111,57 @@ try:
 except:
     print("tuples are immutable")
 
+#dictionaries
+print("\nDictionaries\n")
 
+alien_0 = {'color':'green','points':5}
+print(alien_0)
+alien_0['x_pos'] = 0
+alien_0['y_pos'] = 25
+print(alien_0)
+alien_0['color'] = 'yellow'
+print(alien_0)
 
+del alien_0['points']
+print(alien_0)
+
+#good way to create long dictionaries
+fav_languge = {
+    'janek':'python',
+    'paweł':'python',
+    'jose':'c',
+}
+
+language = fav_languge['paweł'].title()
+print(f'My fav language is {language}')
+
+print(alien_0)
+try:
+    print(alien_0['points'])
+except KeyError as k:
+    print(f'{k} is not in dictionary')
+
+#get function (1 arg what to take, 2 arg what to gigve if arg not in dictionary)
+alien_0 = {
+    'color':'blue',
+    'speed':'fast',
+    'race':'marsylian',
+    'sex':'female',
+}
+
+sex = alien_0.get('sex','Sex not specified!')
+print(sex)
+age = alien_0.get('age','Age not specified!') #if second arg not given - None is default
+print(age)
+
+#iteration through dictionary
+for key,value in alien_0.items():
+    print(f'\nKey: {key}')
+    print(f'Value: {value}')
+
+print('\n')
+for k in alien_0.keys():
+    print(k)
+print('\n')
+for v in alien_0.values():
+    print(v)
