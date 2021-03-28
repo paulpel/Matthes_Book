@@ -165,3 +165,41 @@ for k in alien_0.keys():
 print('\n')
 for v in alien_0.values():
     print(v)
+print('\n')
+for elem in alien_0:  #default key
+    print(elem)
+
+print(sorted(alien_0))
+print(sorted(alien_0.values()))
+
+dic_language = {
+    '1': 'python',
+    '2': 'c',
+    '3': 'ruby',
+    '4': 'python',
+}
+
+for lang in sorted(set(dic_language.values())):   #set to eliminate duplicates
+    print(lang)
+
+#nesting
+print('\nNesting\n')
+
+aliens = []
+
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+
+for alien in aliens[:5]:
+    print(alien)
+print(f'Total number of aliens {len(aliens)}')
+
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['points'] = 10
+        alien['speed'] = 'moderate'
+
+for alien in aliens[:5]:
+    print(alien)
