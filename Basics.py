@@ -1,3 +1,5 @@
+import random
+
 #Revision of basics, only forgetable stuff mentioned here
 #Strings, usefull functions to remember
 print("STRINGS\n")
@@ -203,3 +205,65 @@ for alien in aliens[:3]:
 
 for alien in aliens[:5]:
     print(alien)
+
+print('\nInput\n')
+
+prompt = 'Personalized message!'
+prompt += '\nWhat is your name? '
+
+#name = input(prompt)   #to not stop the program
+name = 'Paul'
+print(f'Witaj, {name.title()}!')
+
+print('\nWhile loop\n')
+
+prompt = 'Here is your blog, type anything you have on your mind:'
+prompt += '\nType \'koniec\' if you want to end the blog. '
+message = 'koniec'  #change to empty string if you want to test
+while message != 'koniec':
+    message = input(prompt)
+    print(message)
+
+#flag
+prompt = 'Guess the number: '
+
+active = True
+while active:
+    #message = int(input(prompt))
+    message = 1     #delete this line if u want to test, and uncomment previous
+    if message == 1:
+        print('Yes!')
+        active = False
+    else:
+        print('Wrong!')
+
+#break
+prompt = 'Guess the number: '
+
+while True:
+    #message = int(input(prompt))
+    message = 1 #delete this line if you want to test, uncomment previous
+    if message == 1:
+        print('Yes!')
+        break
+    else:
+        print('Wrong!')
+
+#continue
+#print only odd numbers
+
+current_number = 0
+while current_number<=10:
+    current_number+=1
+    if current_number%2 == 0:
+        continue
+
+    print(current_number)
+
+random_numbers = [random.randint(1,5) for _ in range(20)]
+print(random_numbers)
+
+while 2 in random_numbers:
+    random_numbers.remove(2)
+
+print(random_numbers)
