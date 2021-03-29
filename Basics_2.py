@@ -97,3 +97,8 @@ def build_profile(**user_info):
 
 user_profile = build_profile(location='cieszyn',age='22',first_name='paul')
 print(user_profile)
+
+#modules
+from random import randint as random_integer #can change names of functions
+
+print(random_integer(69,70))
