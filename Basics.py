@@ -17,13 +17,13 @@ print(word.lstrip())        #left
 print(word.strip())         #both sides
 
 #Numbers
-print("\nNumbers\n")
+print("\nNUMBERS\n")
 
 billions = 1_000_000_000      #use _ for clarity
 print(billions+1)
 
 #List
-print("\nLists\n")
+print("\nLISTS\n")
 alphabet = ["a",'b','c','e']
 alphabet.insert(3,"d")      #index where to instert, what to insert
 print(alphabet)
@@ -114,7 +114,7 @@ except:
     print("tuples are immutable")
 
 #dictionaries
-print("\nDictionaries\n")
+print("\nDICTIONARIES\n")
 
 alien_0 = {'color':'green','points':5}
 print(alien_0)
@@ -185,7 +185,7 @@ for lang in sorted(set(dic_language.values())):   #set to eliminate duplicates
     print(lang)
 
 #nesting
-print('\nNesting\n')
+print('\nNESTING\n')
 
 aliens = []
 
@@ -215,7 +215,7 @@ prompt += '\nWhat is your name? '
 name = 'Paul'
 print(f'Witaj, {name.title()}!')
 
-print('\nWhile loop\n')
+print('\nWHILE LOOP\n')
 
 prompt = 'Here is your blog, type anything you have on your mind:'
 prompt += '\nType \'koniec\' if you want to end the blog. '
