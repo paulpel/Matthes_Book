@@ -34,11 +34,34 @@ class Car():
         self.brand = brand
         self.model = model
         self.year = year
+        self.odometer_reading = 0
 
     def get_full_name(self):
         '''Return full description of a car'''
         long_name = f'{self.brand} {self.model} {self.year}'
         return long_name.title()
 
+    def read_odometer(self):
+        '''Display current kmeeters traveled'''
+        print(f'{self.odometer_reading} km travelled so far.')
+
+    def update_odometer(self, km_reading):
+        '''Update info about odometer'''
+        if km_reading >= self.odometer_reading:
+            self.odometer_reading = km_reading
+        else:
+            print('Can\'t lower existing milleage!')
+
+    def add_km_travelled(self, km):
+        '''Add new travelled km to odometer'''
+        self.odometer_reading += km
+
+print('\n')
 my_car = Car('VW','golf 7',2016)
 print(my_car.get_full_name())
+my_car.read_odometer()
+my_car.update_odometer(23545)
+my_car.read_odometer()
+my_car.add_km_travelled(54)
+my_car.read_odometer()
+my_car.update_odometer(0)
