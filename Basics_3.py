@@ -25,3 +25,20 @@ my_dog.roll_over()
 
 you_dog = Dog("Max",2)
 you_dog.sit()
+
+
+class Car():
+    '''Car info'''
+
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def get_full_name(self):
+        '''Return full description of a car'''
+        long_name = f'{self.brand} {self.model} {self.year}'
+        return long_name.title()
+
+my_car = Car('VW','golf 7',2016)
+print(my_car.get_full_name())
