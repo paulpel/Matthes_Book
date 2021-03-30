@@ -1,3 +1,5 @@
+import json
+
 with open('Files/pi_digits.txt') as file_object:
     for line in file_object:
         print(line.rstrip())
@@ -45,3 +47,9 @@ while True:
         print('Value error! Input only numbers!')
     else:
         print(answer)
+
+numbers = [1,2,3,4,5]
+
+filename = 'numbers.json'
+with open(f'Files/{filename}','w') as f:
+    json.dump(numbers, f)
