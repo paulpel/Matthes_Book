@@ -12,3 +12,4 @@ class Settings:
         self.ship_width = 37
         self.ship_height = 64
         self.ship_path_image = 'Images/ship.bmp'
+        self.ship_speed = 2

@@ -1,7 +1,5 @@
 import pygame
 
-from settings import Settings
-
 class Ship:
     '''Klasa do zarządzania statkiem kosmicznym'''
 
@@ -9,7 +7,7 @@ class Ship:
         '''Inicjalizacja statku i jego połorzenia'''
 
         self.screen = ai_game.screen
-        self.settings = Settings()
+        self.settings = ai_game.settings
 
         #to store rectangular cordinates
         self.screen_rect = ai_game.screen.get_rect()
@@ -23,6 +21,22 @@ class Ship:
 
         #nowy statek pojawia się na środku na dole
         self.rect.midbottom = self.screen_rect.midbottom
+
+        #położenie poziome musimy dac zmiennoprzecinkowe - zeby zmienic predkosc
+        self.x = float(self.rect.x)
+
+        #Czy statek się porusza
+        self.moving_right = False
+        self.moving_left = False
+
+    def update(self):
+        '''Uaktualnienie położenia statku'''
+        if self.moving_right:
+            self.x += self.settings.ship_speed
+        if self.moving_left:
+            self.x -= self.settings.ship_speed
+
+        self.rect.x = self.x
 
     def blitme(self):
         '''Wyswietlenie w akualnym połozeniu'''
