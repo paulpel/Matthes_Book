@@ -24,20 +24,22 @@ class AlienInvasion:
         while True:
             #Oczekiwanie na nacisniecie klawisza badz przycisku myszy
             self._check_events()
-
-
-            #Odświeżenie ekranu
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme()
-
-            #Wyświetl ostatnio zmodyfikowany ekran
-            pygame.display.flip()
+            self._update_screen()
 
     def _check_events(self):
         '''Reakcja na zdarzenia generowane przez klawiaturę i mysz'''
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
+
+    def _update_screen(self):
+        '''Uaktualnienie ekranu'''
+        # Odświeżenie ekranu
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+
+        # Wyświetl ostatnio zmodyfikowany ekran
+        pygame.display.flip()
 
 if __name__ == '__main__':
     #Utworzenie egzemplarza i uruchomienie
