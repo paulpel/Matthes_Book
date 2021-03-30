@@ -14,6 +14,7 @@ class Dog():
         '''Simulation od a dog rolling over.'''
         print(f'{self.name.title()} now rolls.')
 
+
 class Car():
     '''Car info'''
 
@@ -43,15 +44,24 @@ class Car():
         '''Add new travelled km to odometer'''
         self.odometer_reading += km
 
+
+class Battery():
+    '''Describing battery of a car'''
+
+    def __init__(self, battery_size=75):
+        '''Initiate atributes of a battery'''
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        print(f'Battery capacity is {self.battery_size} kWh')
+
+
 class ElectricCar(Car):
     '''Electric subclass of Car'''
 
     def __init__(self, brand, model, year):
         super().__init__(brand,model,year)
-        self.battery_size = 75
-
-    def describe_battery(self):
-        print(f'Battery capacity is {self.battery_size} kWh')
+        self.battery = Battery()
 
 
 my_dog = Dog('Diora',8)
@@ -76,6 +86,6 @@ print('\n')
 
 my_tesla = ElectricCar('tesla','model s',2020)
 print(my_tesla.get_full_name())
-my_tesla.describe_battery()
+my_tesla.battery.describe_battery()
 #to overwrite existing method in subclass just use the same name
 #can add classes to classes as atributes
