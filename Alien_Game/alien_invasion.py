@@ -20,6 +20,7 @@ class AlienInvasion:
         self.bg_image = pygame.transform.scale(self.bg_image, (
             self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien invasion")
+        pygame.mouse.set_visible(False)
 
         self.ship = Ship(self)
 
