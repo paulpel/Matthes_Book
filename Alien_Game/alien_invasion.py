@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 class AlienInvasion:
     '''Klasa stworzona do zarządzania zasobami i sposobem działania gry'''
@@ -23,6 +24,7 @@ class AlienInvasion:
         pygame.mouse.set_visible(False)
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
     def run_game(self):
         '''Główna pętla gry - rozpoczęcie'''
@@ -30,6 +32,7 @@ class AlienInvasion:
             #Oczekiwanie na nacisniecie klawisza badz przycisku myszy
             self._check_events()
             self.ship.update()
+            self.bullets.update()
             self._update_screen()
 
     def _check_events(self):
@@ -53,6 +56,8 @@ class AlienInvasion:
             self.ship.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = True
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
         elif event.key == pygame.K_q:
             sys.exit()
 
@@ -67,11 +72,18 @@ class AlienInvasion:
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
 
+    def _fire_bullet(self):
+        '''Stworzenie pocisku i dodanie go do grupe pocisków'''
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
+
     def _update_screen(self):
         '''Uaktualnienie ekranu'''
         # Odświeżenie ekranu
         self.screen.blit(self.bg_image, (0,0))
         self.ship.blitme()
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
 
         # Wyświetl ostatnio zmodyfikowany ekran
         pygame.display.flip()
