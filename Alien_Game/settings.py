@@ -21,3 +21,8 @@ class Settings:
         self.bullet_height = 20
         self.bullet_color = (255,0,0)
         self.bullets_allowed = 3
+
+        #Ustawienia obcego
+        self.alien_width = 150
+        self.alien_height = 75
+        self.alien_image_path = 'Images/alien.bmp'
