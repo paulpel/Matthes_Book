@@ -23,6 +23,10 @@ class Settings:
         self.bullets_allowed = 3
 
         #Ustawienia obcego
-        self.alien_width = 150
-        self.alien_height = 75
+        self.alien_width = 100
+        self.alien_height = 50
         self.alien_image_path = 'Images/alien.bmp'
+        self.alien_speed = 1.0
+        self.fleet_drop_speed = 10
+        #1 prawo, -1 lewo
+        self.fleet_direction = 1

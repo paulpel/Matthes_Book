@@ -37,6 +37,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self._update_screen()
 
     def _check_events(self):
@@ -90,11 +91,49 @@ class AlienInvasion:
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
 
+    def _create_alien(self, alien_number, row_number):
+        '''Utworzenie obcego i umieszczenie go w rzedzie'''
+        alien = Alien(self)
+        alien_width, alien_height = alien.rect.size
+        alien.x = alien_width + 2.5 * alien_width * alien_number
+        alien.rect.x = alien.x
+        alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
+        self.aliens.add(alien)
+
     def _create_fleet(self):
         '''Utworzenie floty'''
         #Utworzenie obcego
         alien = Alien(self)
-        self.aliens.add(alien)
+        alien_width, alien_height = alien.rect.size
+        available_space_x = self.settings.screen_width - (3*alien_width)
+        number_aliens_x = available_space_x//(2*alien_width)
+
+        #ile rzędów
+        ship_height = self.ship.rect.height
+        available_space_y = (self.settings.screen_height - (5*alien_height)-ship_height)
+        number_of_rows = available_space_y//(2*alien_height) - 1
+
+        #Flota obcych
+        for row_number in range(number_of_rows):
+            for alien_number in range(number_aliens_x):
+                self._create_alien(alien_number, row_number)
+
+    def _check_fleet_edges(self):
+        '''Reakcja na dotarcie do krawedzi'''
+        for alien in self.aliens.sprites():
+            if alien.check_edges():
+                self._change_fleet_direction()
+                break
+
+    def _change_fleet_direction(self):
+        '''Przesuniecie floty w doł i zmiana kierunku w którym się porusza'''
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.fleet_drop_speed
+        self.settings.fleet_direction *= -1
+
+    def _update_aliens(self):
+        self._check_fleet_edges()
+        self.aliens.update()
 
     def _update_screen(self):
         '''Uaktualnienie ekranu'''
