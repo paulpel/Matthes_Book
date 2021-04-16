@@ -147,6 +147,10 @@ class AlienInvasion:
         self._check_fleet_edges()
         self.aliens.update()
 
+        #wykrywanie kolizji między obcym i statkiem
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print('Statek trafiony!')
+
     def _update_screen(self):
         '''Uaktualnienie ekranu'''
         # Odświeżenie ekranu
