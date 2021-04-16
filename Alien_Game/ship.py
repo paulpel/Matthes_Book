@@ -50,3 +50,8 @@ class Ship:
         '''Wyswietlenie w akualnym połozeniu'''
 
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        '''Umieszczenie statku na środku na dole'''
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)

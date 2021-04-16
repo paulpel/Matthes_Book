@@ -147,13 +147,26 @@ class AlienInvasion:
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
 
+    def _ship_hit(self):
+        '''Reakcja na trafienie w statek'''
+        self.stats.ships_left -= 1
+
+        #reset aliens i bullets
+        self.aliens.empty()
+        self.bullets.empty()
+
+        self._create_fleet()
+        self.ship.center_ship()
+
+        sleep(0.5)
+
     def _update_aliens(self):
         self._check_fleet_edges()
         self.aliens.update()
 
         #wykrywanie kolizji między obcym i statkiem
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            print('Statek trafiony!')
+            self._ship_hit()
 
     def _update_screen(self):
         '''Uaktualnienie ekranu'''
