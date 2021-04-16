@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 class Bullet(Sprite):
     '''Klasa do zarządzania pociskami'''
 
-    def __init__(self,ai_game):
+    def __init__(self, ai_game):
         '''Utworzenie pocisku w aktualnym położeniu statku'''
         super().__init__()
         self.screen = ai_game.screen
