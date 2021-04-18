@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-n = 6
+n = 100
 input_values = [i for i in range(n)]
 squares = [i**2 for i in range(n)]
 
