@@ -9,12 +9,11 @@ while True:
 
     #wyświetlanie
     plt.style.use('classic')
-    fig, ax = plt.subplots()
-    fig.set_size_inches(15, 8, forward=True)
+    fig, ax = plt.subplots(figsize=(15,10), dpi=80)
 
     number_points = range(rw.num_points)
 
-    ax.scatter(rw.x_values, rw.y_values, c=number_points, cmap=plt.cm.Blues, edgecolor='none', s=15)
+    ax.scatter(rw.x_values, rw.y_values, c=number_points, cmap=plt.cm.Blues, edgecolor='none', s=10)
     start = ax.scatter(0, 0, c='green', edgecolors='none', s=50)
     end = ax.scatter(rw.x_values[-1], rw.y_values[-1], c='red', edgecolors='none', s=50)
 
@@ -27,6 +26,6 @@ while True:
     mng = fig.canvas.manager
     plt.show()
 
-    keep_running = 'y' #input('Keep running? (y/n)').lower()
+    keep_running = input('Keep running? (y/n)').lower()
     if keep_running == 'n':
         break
